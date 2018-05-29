@@ -1,20 +1,13 @@
 package ru.aisa.example.demospring.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import ru.aisa.example.demospring.dao.UserDAO;
 import ru.aisa.example.demospring.model.UsersEntity;
 import ru.aisa.example.demospring.repository.UsersRepository;
 
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -31,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(UsersEntity p) {
-
+        usersRepository.save(p);
     }
 
     @Override
@@ -40,8 +33,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UsersEntity getUserById(int id) {
-        return new UsersEntity();
+    public Optional<UsersEntity> getUserById(int id) {
+        return usersRepository.findById(id);
     }
 
     @Override

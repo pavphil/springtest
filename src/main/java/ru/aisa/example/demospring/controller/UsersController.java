@@ -10,6 +10,7 @@ import ru.aisa.example.demospring.model.UsersEntity;
 import ru.aisa.example.demospring.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UsersController {
@@ -21,6 +22,8 @@ public class UsersController {
         List<UsersEntity> users = null;
         try {
             users = userService.findAllSortedDesc();
+            Optional<UsersEntity> ur = userService.getUserById(2);
+            ur.get();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
