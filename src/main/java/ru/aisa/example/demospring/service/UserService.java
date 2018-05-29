@@ -6,6 +6,7 @@ import ru.aisa.example.demospring.model.UsersEntity;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public interface UserService {
     void addUser(UsersEntity u);
     void updateUser(UsersEntity p);

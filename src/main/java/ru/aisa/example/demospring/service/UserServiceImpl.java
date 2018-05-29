@@ -1,5 +1,6 @@
 package ru.aisa.example.demospring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.aisa.example.demospring.model.UsersEntity;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Autowired
     private UsersRepository usersRepository;
 
     //private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("customerManager");
