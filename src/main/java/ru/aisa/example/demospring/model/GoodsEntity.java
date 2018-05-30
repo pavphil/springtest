@@ -13,7 +13,7 @@ public class GoodsEntity {
     private int id;
     private int partnumber;
     private String name;
-    private Integer amount;
+    private int amount;
 
     @Id
     @Column(name = "id")

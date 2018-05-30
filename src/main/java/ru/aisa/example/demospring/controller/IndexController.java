@@ -19,6 +19,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(@RequestParam(value = "search", required = false) String q, Model model) {
         List<UsersEntity> users = null;
+        String inputPrhase = "Hello world";
         try {
             users = userService.listUsers();
         } catch (Exception ex) {
@@ -26,7 +27,7 @@ public class IndexController {
             // ...
             // throw ex;
         }
-        model.addAttribute("users", users);
+        model.addAttribute("inputPhase", inputPrhase);
         return "index";
     }
 }
