@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import ru.aisa.example.demospring.model.UsersEntity;
 import ru.aisa.example.demospring.repository.UsersRepository;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 

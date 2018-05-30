@@ -10,7 +10,6 @@ import ru.aisa.example.demospring.model.UsersEntity;
 import ru.aisa.example.demospring.service.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class UsersController {
@@ -18,12 +17,16 @@ public class UsersController {
     private UserService userService;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String index(@RequestParam(value = "search", required = false) String q, Model model) {
+    public String index(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "surname", required = false) String surname, Model model) {
         List<UsersEntity> users = null;
         try {
-            users = userService.findAllSortedDesc();
-            Optional<UsersEntity> ur = userService.getUserById(2);
-            ur.get();
+            UsersEntity entity = new UsersEntity();
+            if (name != null)
+                entity.setName(name);
+            if (surname != null)
+                entity.setSurname(surname);
+            //userService.addUser(entity);
+            users = userService.listUsers();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

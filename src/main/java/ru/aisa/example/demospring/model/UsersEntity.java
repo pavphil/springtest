@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "public", catalog = "testdb")
 public class UsersEntity {
     private int id;
     private String name;
@@ -13,6 +13,7 @@ public class UsersEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -55,11 +56,11 @@ public class UsersEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsersEntity that = (UsersEntity) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(surname, that.surname) &&
-                Objects.equals(age, that.age);
+        UsersEntity entity = (UsersEntity) o;
+        return id == entity.id &&
+                Objects.equals(name, entity.name) &&
+                Objects.equals(surname, entity.surname) &&
+                Objects.equals(age, entity.age);
     }
 
     @Override
