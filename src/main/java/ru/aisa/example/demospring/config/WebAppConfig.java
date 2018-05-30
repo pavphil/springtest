@@ -3,26 +3,25 @@ package ru.aisa.example.demospring.config;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.http.CacheControl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("ru.aisa.example.demospring.dao"),
-        @ComponentScan("ru.aisa.example.demospring.service") })
+@ComponentScans(value = {@ComponentScan("ru.aisa.example.demospring.dao"),
+        @ComponentScan("ru.aisa.example.demospring.service")})
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("ru.aisa.example.demospring.repository")
-public class WebAppConfig {
+public class WebAppConfig implements WebMvcConfigurer {
 
     /*private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
@@ -73,5 +72,10 @@ public class WebAppConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/static/");
     }
 }
