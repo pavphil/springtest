@@ -1,5 +1,7 @@
 package ru.aisa.example.demospring.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,12 +24,14 @@ import java.util.Map;
 public class UsersController {
     @Autowired
     private UserService userService;
+    private Logger logger = LoggerFactory.getLogger(UsersController.class);
 
     @RequestMapping(value = "/listusers", method = RequestMethod.GET)
     public String listUsers(Model model) {
         List<UsersEntity> users = null;
         try {
             users = userService.listUsers();
+            logger.error("LOGGER TEST");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
