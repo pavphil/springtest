@@ -3,7 +3,7 @@
 <html lang="en">
 <script src="/resources/ts/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/resources/ts/js/userscript.js"></script>
-<link href="/resources/css/mycss.css" rel="stylesheet" />
+<link href="/resources/css/styles.css" rel="stylesheet" />
 <body>
 <input type="button" class="button" id="testBut" value="Click me">
 
