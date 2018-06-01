@@ -15,6 +15,36 @@ $(document).ready(function () {
         event.preventDefault();
         sendData();
     });
+
+    $("li").click(function () {
+        $(this).hide( "slow", function() {
+            alert( "Animation complete." );
+        });
+    });
+
+    /*$("li").dblclick(function(){
+        alert("dblcik");
+    });*/
+
+    $("#buttonBut").click(function () {
+        $("li").toggle(1000, function () {
+            alert("TOGLED");
+        });
+    });
+
+    $("#buttonBut1").click(function () {
+        $("li:first").show();
+    });
+
+    $("#fadeTest").click(function(){
+        $("#div1").fadeToggle(); // fageIn, fadeOut, fadeTo(speed,opacity,callback);
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+    });
+
+    $("#flip").click(function(){
+        $("#panel").slideDown("slow");
+    });
 });
 
 function sendData() {
@@ -27,7 +57,7 @@ function sendData() {
         data: JSON.stringify(sendVar),
         success: function (resp) {
             var usersArr = resp.users;
-            $.each(usersArr, function(i, item) {
+            $.each(usersArr, function (i, item) {
                 var $tr = $('<tr>').append(
                     $('<td>').text(item.name),
                     $('<td>').text(item.surname),
