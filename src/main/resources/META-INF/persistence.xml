@@ -3,8 +3,8 @@
 
     <persistence-unit name="customerManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ru.aisa.example.demospring.model.UsersEntity</class>
-        <class>ru.aisa.example.demospring.model.GoodsEntity</class>
+        <class>ru.phil.example.demospring.model.UsersEntity</class>
+        <class>ru.phil.example.demospring.model.GoodsEntity</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<script src="/resources/ts/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/resources/ts/js/userscript.js"></script>
+
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/resources/css/styles.css">
+        <#include "commons.ftl">
 </head>
 <body>
 <input type="button" class="button" id="testBut" value="Click me">
@@ -31,9 +30,12 @@
 
 </table>
 
-<button id="fadeTest">Click to fade out boxes</button><br><br>
-<div id="div1" style="width:80px;height:80px;background-color:red;display: none;"></div><br>
-<div id="div2" style="width:80px;height:80px;background-color:green;display: none;"></div><br>
+<button id="fadeTest">Click to fade out boxes</button>
+<br><br>
+<div id="div1" style="width:80px;height:80px;background-color:red;display: none;"></div>
+<br>
+<div id="div2" style="width:80px;height:80px;background-color:green;display: none;"></div>
+<br>
 <div id="div3" style="width:80px;height:80px;background-color:blue;display: none;"></div>
 
 <div id="flip">Click to slide down panel</div>
