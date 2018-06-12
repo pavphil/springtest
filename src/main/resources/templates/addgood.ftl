@@ -10,11 +10,11 @@
 </head>
 
 <body>
-<form action="/goods/add" method="post"class="form-horizontal">
+<form action="/goods/add" id = "addform" method="post"class="form-horizontal">
     <div class="form-group">
         <label class="control-label col-sm-2" for="name">Наименование детали</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Введите наименование детали">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Введите наименование детали" value="hello">
         </div>
     </div>
     <div class="form-group">
