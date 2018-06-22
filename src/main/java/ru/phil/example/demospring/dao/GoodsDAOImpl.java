@@ -29,7 +29,7 @@ public class GoodsDAOImpl implements GoodsDAO {
     public List<GoodsEntity> getAllGoodsOrderByPrice(boolean isDesc) {
         String SQL = "SELECT C FROM GoodsEntity C";
         if (isDesc)
-            SQL += " ORDER BY C.partnumber DESC";
+            SQL += " ORDER BY C.partNumber DESC";
         return em.createQuery(SQL).getResultList();
     }
 

@@ -37,9 +37,10 @@ public class GoodsController {
         try {
             goods = goodsService.listGoodsOrderByPartnumber(isDesc);
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        model.addAttribute("users", goods);
-        return "index";
+        model.addAttribute("goods", goods);
+        return "goods";
     }
 
     @RequestMapping(value = "/getallnames", method = RequestMethod.GET)
