@@ -62,7 +62,8 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addGoodToDb(Model model, @ModelAttribute GoodsEntity entity){
+    public ResponseEntity<Map<String, Object>> addGoodToDb(Model model, @ModelAttribute GoodsEntity entity){
+
         Map<String, Object> message = new HashMap<>();
         boolean res = goodsService.save(entity);
         if (res){
@@ -80,6 +81,7 @@ public class GoodsController {
 
         List<GoodsEntity> allGoods = goodsService.listGoods();
         model.addAttribute("goods", allGoods);
-        return "resultgoodswin";
+        return new ResponseEntity<>(message, headers, HttpStatus.OK);
+        //return "resultgoodswin";
     }
 }
